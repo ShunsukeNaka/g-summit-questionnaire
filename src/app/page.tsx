@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className='container mx-auto p-4'>
-      <h1 className='text-3xl font-bold mb-4'>選択肢の追加</h1>
+      <h1 className='text-3xl font-bold mb-4'></h1>
       {todos.map((todo) => (
         <div
           key={todo.id}
