@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Input, Link } from '@mui/material';
 
 type Form = {
   id: number,
@@ -24,14 +24,14 @@ const choices: Choice[] = [
 ]
 
 const makeID = function (): string{
-  const id: string = '+++++++++++'
+  const id: string = Math.random().toString(36).substring(2).slice(-9)
+  console.log(id)
   return id
 }
 
 const Create: NextPage = () => {
+    //追加用Formの内容
     const [inputValue, setInputValue] = useState<string | null>(null)
-
-    
     //選択肢の配列
     const [choices, setChoices] = useState<Choice[]>([])
 
@@ -60,8 +60,30 @@ const Create: NextPage = () => {
 
     const addChoice = (title: string | null) => {
       console.log("addCoice")
-      if(title != null){
-        setChoices([...choices, {id: makeID(), title: title, checked: false, color:'bg-gray-400', hoverColor: 'bg-red-600' }])
+      let flg = true
+      let spaceRegExp = /\S/
+
+      let noNullTitle: string = ""
+
+      if(title == null)
+      {
+        flg = false
+      }else {
+        flg = spaceRegExp.test(title)
+        noNullTitle = title
+        noNullTitle = noNullTitle.trim()
+      }
+
+      for(let i = 0; i < choices.length; i++)
+      {
+        if(noNullTitle == choices[i].title)
+        {
+          flg = false
+        }
+      }
+
+      if(flg){
+        setChoices([...choices, {id: makeID(), title: noNullTitle, checked: false, color:'bg-gray-400', hoverColor: 'bg-red-600' }])
         setInputValue(null)
       }
     };
@@ -70,6 +92,10 @@ const Create: NextPage = () => {
       setChoices(
 				choices.filter((choices) => (choices.id !== index))
 			)
+    };
+
+    const createForm = () => {
+      console.log(choices)
     };
   
     const changeChecked = (choice: Choice) => {
@@ -91,7 +117,7 @@ const Create: NextPage = () => {
         )
       }
     };
-  
+
     return (
       <div className='container mx-auto p-4'>
         <h1 className='text-3xl font-bold mb-4'>
@@ -103,12 +129,7 @@ const Create: NextPage = () => {
             className='flex items-center justify-between bg-gray-200 p-2 rounded mb-2'
           >
             <div className='flex items-center'>
-              <input
-                type='checkbox'
-                checked={choice.checked}
-                onChange={() => changeChecked(choice)}
-                className='mr-2'
-              />
+             
               <p className={`text-black ${choice.checked ? 'line-through' : ''}`}>
                 {choice.title}
               </p>
@@ -124,7 +145,7 @@ const Create: NextPage = () => {
         <form
           className='flex items-center mt-4'
         >
-          <input
+          <Input
             type='text'
             className='border border-gray-400 px-4 py-2 mr-2 rounded text-black'
             value={inputValue || ''}
@@ -138,6 +159,14 @@ const Create: NextPage = () => {
             追加
           </Button>
         </form>
+        <Link href="/use">
+          <Button
+              onClick={() => createForm()}
+              className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded'
+            >
+              フォームを保存する
+          </Button>
+        </Link>
       </div>
     )
 }

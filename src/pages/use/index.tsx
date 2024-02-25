@@ -3,6 +3,7 @@ import 'tailwindcss/tailwind.css'
 import type { NextPage } from 'next'
 import Button from '@mui/material/Button';
 import { Box, Grid, Stack } from '@mui/material';
+import { Link } from "react-router-dom"
 
 type Form = {
 	id: number,
@@ -37,6 +38,7 @@ const Use: NextPage = () => {
 						>
 						<Button className="flex justify-between bg-gray-200 p-2 rounded mb-2 w-full content-center h-10"
 								onClick={() => updateForm()}
+								component={Link} to="/use"
 						>
 							<p>
 							{form.id}
@@ -47,8 +49,8 @@ const Use: NextPage = () => {
 							<p>
 							{form.title}
 							</p>
-							
 						</Button>
+						
 						<Button
 							className='bg-red-500 h-10'
 							variant="contained"
