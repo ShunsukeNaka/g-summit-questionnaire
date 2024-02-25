@@ -18,7 +18,8 @@
     "deno_ls_plugin_ts_tsx": "^0.1.2",
     "next": "14.1.0",
     "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-router-dom": "^6.22.1"
   },
   "devDependencies": {
     "@types/node": "^20",
