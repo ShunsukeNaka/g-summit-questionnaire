@@ -14,6 +14,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
+    "@prisma/client": "^5.10.2",
     "deno_ls_plugin": "^0.1.0",
     "deno_ls_plugin_ts_tsx": "^0.1.2",
     "next": "14.1.0",
@@ -28,6 +29,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
+    "prisma": "^5.10.2",
+    "studio": "^0.13.5",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.3.3"
   },
