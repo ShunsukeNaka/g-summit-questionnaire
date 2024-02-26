@@ -4,6 +4,8 @@ import 'tailwindcss/tailwind.css'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
 import { Button, Input, Link } from '@mui/material';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 type Form = {
   id: number,
@@ -119,54 +121,63 @@ const Create: NextPage = () => {
     };
 
     return (
-      <div className='container mx-auto p-4'>
-        <h1 className='text-3xl font-bold mb-4'>
-          タイトル
-        </h1>
-        {choices.map((choice) => (
-          <div
-            key={choice.id}
-            className='flex items-center justify-between bg-gray-200 p-2 rounded mb-2'
-          >
-            <div className='flex items-center'>
-             
-              <p className={`text-black ${choice.checked ? 'line-through' : ''}`}>
-                {choice.title}
-              </p>
+      <div>
+        <Header />
+        <div className='container mx-auto p-4 bg-purple-300 rounded-t-lg'>
+          <h1 className='text-3xl font-bold mb-4'>
+            タイトル
+          </h1>
+        </div>
+        <div className='container mx-auto p-4 bg-purple-200 rounded-b-lg'>
+          
+          {choices.map((choice) => (
+            <div
+              key={choice.id}
+              className='flex items-center justify-between bg-gray-200 p-2 rounded mb-2'
+            >
+              <div className='flex items-center'>
+              
+                <p className={`text-black ${choice.checked ? 'line-through' : ''}`}>
+                  {choice.title}
+                </p>
+              </div>
+              <button
+                onClick={() => deleteChoice(choice.id)}
+                className='bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded'
+              >
+                削除
+              </button>
             </div>
-            <button
-              onClick={() => deleteChoice(choice.id)}
-              className='bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded'
-            >
-              削除
-            </button>
-          </div>
-        ))}
-        <form
-          className='flex items-center mt-4'
-        >
-          <Input
-            type='text'
-            className='border border-gray-400 px-4 py-2 mr-2 rounded text-black'
-            value={inputValue || ''}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder='追加したい選択肢を入力してください'
-          />
-          <Button
-            onClick={() => addChoice(inputValue)}
-            className='bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded'
+          ))}
+          <form
+            className='flex items-center justify-between mt-6 bg-gray-300'
           >
-            追加
-          </Button>
-        </form>
-        <Link href="/use">
-          <Button
-              onClick={() => createForm()}
-              className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded'
+            <Input
+              type='text'
+              className='border border-gray-400 w-full px-4 py-2 mr-2 rounded text-black bg-white'
+              value={inputValue || ''}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder='追加したい選択肢を入力してください'
+            />
+            <Button
+              onClick={() => addChoice(inputValue)}
+              className='bg-green-500 hover:bg-green-600 text-white mx-4 my-2 rounded'
             >
-              フォームを保存する
-          </Button>
-        </Link>
+              追加
+            </Button>
+          </form>
+          <div className='flex justify-center'>
+            <Link href="/use">
+              <Button
+                  onClick={() => createForm()}
+                  className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 mt-10'
+                >
+                  フォームを保存する
+              </Button>
+            </Link>
+          </div>
+        </div>
+      <Footer /> 
       </div>
     )
 }

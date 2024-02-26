@@ -1,3 +1,7 @@
 .cell{
     float: left;
 }
+
+html.body {
+    height: 100%;
+}

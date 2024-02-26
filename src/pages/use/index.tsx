@@ -3,6 +3,8 @@ import 'tailwindcss/tailwind.css'
 import type { NextPage } from 'next'
 import Button from '@mui/material/Button';
 import { Box, Grid, Stack } from '@mui/material';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 type Form = {
 	id: number,
@@ -24,18 +26,22 @@ const Use: NextPage = () => {
 
 	return (
 		<div>
-			<h1 className='text-3xl font-bold mb-4'>This is About Page</h1>
-			<div className='text-right'>
+			<Header />
+			
+			<div className='text-right mx-2 bg-blue-400 rounded-t-lg'>
 				<Button
-					className='bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded'
-				>追加
+						className='bg-green-500 hover:bg-green-600 text-white px-4 mx-2 my-1 rounded'
+					>追加
 				</Button>
+			</div>
+			<div className='text-right mx-2 bg-blue-200 py-2 px-1 rounded-b-lg'>
+				
 				{forms.map((form) => (
 					<div
-					className='flex'
+					className='flex bg-white border rounded-lg p-1'
 						key={form.id}
 						>
-						<Button className="flex justify-between bg-gray-200 p-2 rounded mb-2 w-full content-center h-10"
+						<Button className="flex justify-between bg-gray-200 w-full content-center h-10 rounded-lg"
 								onClick={() => updateForm()}
 								href="/create"
 						>
@@ -51,7 +57,7 @@ const Use: NextPage = () => {
 						</Button>
 						
 						<Button
-							className='bg-red-500 h-10'
+							className='bg-red-500 h-10  rounded-lg'
 							variant="contained"
 							color="error"
 							onClick={() => '削除処理'}
@@ -59,7 +65,7 @@ const Use: NextPage = () => {
 							削除
 						</Button>
 						<Button
-							className='bg-blue-500 hover:bg-blue-600 h-10'
+							className='bg-blue-500 hover:bg-blue-600 h-10 rounded-lg'
 							variant="contained"
 							color="error"
 							onClick={() => '削除処理'}
@@ -69,6 +75,8 @@ const Use: NextPage = () => {
 					</div>
 				))}
 			</div>
+			
+			<Footer />
 		</div>
 	)
 }

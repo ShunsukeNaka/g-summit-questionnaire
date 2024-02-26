@@ -4,6 +4,8 @@ import type { NextPage } from 'next'
 import Button from '@mui/material/Button';
 import { Box, Grid, Stack } from '@mui/material';
 import { Component, useEffect, useState } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 type Form = {
 	id: number,
@@ -111,14 +113,17 @@ const Use: NextPage = () => {
 		
 	return (
 		<div>
-			<h1 className='text-center text-3xl font-bold mb-4'>{formInfo.title}</h1>
-			<div className='text-center'>
+			<Header />
+			<div>
+				<h1 className='text-center text-3xl font-bold mx-6 bg-orange-400 rounded-t-lg'>{formInfo.title}</h1>
+			</div>
+			<div className='text-center mx-6 py-1 pt-6 bg-orange-200 rounded-b-lg'>
 				{choices.map((choice) => (
 					<div
-					className='flex'
+					className='flex mx-4 px-1 py-1 bg-white rounded'
 						key={choice.id}
 						>
-						<Button className={'flex justify-between ' + choice.color + ' hover:' + choice.hoverColor + ' text-white p-2 rounded mb-2 w-full content-center h-10'}
+						<Button className={'flex justify-between ' + choice.color + ' hover:' + choice.hoverColor + ' text-white p-2 w-full content-center h-10'}
 								onClick={() => clickChoice(choice)}
 								typeof='submit'
 						>
@@ -141,13 +146,14 @@ const Use: NextPage = () => {
 						</p>
 					))}
 				<Button
-					className={btnColor + ' hover:bg-green-600 text-white px-4 py-2 rounded'}
+					className={btnColor + ' hover:bg-green-600 text-white px-4 py-2 mt-8 rounded'}
 					onClick={() => clickVote(choiceId)}
 					disabled={canPush}
 				>投票する
 				</Button>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	)
 }
