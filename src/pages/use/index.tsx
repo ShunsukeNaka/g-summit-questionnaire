@@ -26,7 +26,8 @@ const Use: NextPage = () => {
 
 	return (
 		<div>
-			<Header />
+			<Header 
+				title='use'/>
 			
 			<div className='text-right mx-2 bg-blue-400 rounded-t-lg'>
 				<Button

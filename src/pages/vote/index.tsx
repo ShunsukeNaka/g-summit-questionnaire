@@ -6,6 +6,7 @@ import { Box, Grid, Stack } from '@mui/material';
 import { Component, useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import VoteHeader from '@/components/VoteHeader';
 
 type Form = {
 	id: number,
@@ -113,7 +114,10 @@ const Use: NextPage = () => {
 		
 	return (
 		<div>
-			<Header />
+			<VoteHeader
+				userId=''
+				invitedGroup=''
+			/>
 			<div>
 				<h1 className='text-center text-3xl font-bold mx-6 bg-orange-400 rounded-t-lg'>{formInfo.title}</h1>
 			</div>

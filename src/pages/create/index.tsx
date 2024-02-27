@@ -122,7 +122,7 @@ const Create: NextPage = () => {
 
     return (
       <div>
-        <Header />
+        <Header title='create'/>
         <div className='container mx-auto p-4 bg-purple-300 rounded-t-lg'>
           <h1 className='text-3xl font-bold mb-4'>
             タイトル

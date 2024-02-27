@@ -16,7 +16,7 @@ const forms: Form[] = [
 {id: 2, title: 'title1', latest:'2024/2/20'},
 ]
 
-const Footer: NextPage = () => {
+export const Footer: NextPage = () => {
 
 
 	return (

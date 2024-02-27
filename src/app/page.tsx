@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header></Header>   
+      <Header title='page'></Header>   
       <Footer></Footer>     
     </div>
 
