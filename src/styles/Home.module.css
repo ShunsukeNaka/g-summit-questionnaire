@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.postform {
+  display: flex;
+  flex-direction: row;
+}
+
+.postitem {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}

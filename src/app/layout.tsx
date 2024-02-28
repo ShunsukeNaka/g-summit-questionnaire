@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+const { Inter } = require("next/font/google");
 import "./globals.css";
 
 import '@fontsource/roboto/300.css';
