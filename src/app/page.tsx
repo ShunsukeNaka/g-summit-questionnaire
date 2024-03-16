@@ -1,7 +1,7 @@
 'use client'
-import PostForm from '@/api/PostForm'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import PostForm from '@/components/PostForm'
 import { useState } from 'react'
 
 export default function Home() {

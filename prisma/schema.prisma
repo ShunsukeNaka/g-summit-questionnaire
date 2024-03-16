@@ -22,3 +22,13 @@ model posts {
 
   @@schema("public")
 }
+
+model forms {
+  id         Int @id
+  FormId     Int
+  title      String
+  latese     DateTime @default(now())
+  createdAt  DateTime @default(now())
+
+  @@schema("public")
+}

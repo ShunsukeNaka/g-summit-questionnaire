@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
     "@prisma/client": "^5.10.2",
+    "@supabase/supabase-js": "^2.39.8",
     "deno_ls_plugin": "^0.1.0",
     "deno_ls_plugin_ts_tsx": "^0.1.2",
     "next": "14.1.0",

@@ -13,7 +13,7 @@ export default function PostForm() {
     }
     try {
       // POSTリクエストを送信
-      const response = await fetch('/api/posts', {
+      const response = await fetch('/api/voted', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

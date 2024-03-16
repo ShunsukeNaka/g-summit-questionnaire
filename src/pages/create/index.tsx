@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Button, Input, Link } from '@mui/material';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { postForm } from '@/function/post';
 
 type Form = {
   id: number,
@@ -98,6 +99,8 @@ const Create: NextPage = () => {
 
     const createForm = () => {
       console.log(choices)
+
+      postForm(1234, "testTitle")
     };
   
     const changeChecked = (choice: Choice) => {
@@ -167,19 +170,19 @@ const Create: NextPage = () => {
             </Button>
           </form>
           <div className='flex justify-center'>
-            <Link href="/use">
               <Button
                   onClick={() => createForm()}
                   className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 mt-10'
                 >
                   フォームを保存する
               </Button>
-            </Link>
           </div>
         </div>
       <Footer /> 
       </div>
     )
 }
+
+//            <Link href="/use">
 
 export default Create

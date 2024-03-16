@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import VoteHeader from '@/components/VoteHeader';
+import { useRouter } from 'next/router';
 
 type Form = {
 	id: number,
@@ -18,7 +19,7 @@ type Choice = {
 	color: string
 	hoverColor: string
 	rank: number
-  }
+}
 
 let btnColor = 'bg-green-500'
 const formInfo: Form = {id: 0, title: '', latest: ''}
@@ -28,6 +29,8 @@ const Use: NextPage = () => {
 	const [choices, setChoices] = useState<Choice[]>([])
 	//投票ボタンを押せるか判定
 	const [canPush, setCanPush] = useState(true)
+
+    const router = useRouter();
 	
 	const loadForm = () => {
 		formInfo.title = 'タイトル仮'
